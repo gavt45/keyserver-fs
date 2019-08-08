@@ -8,6 +8,10 @@ So this basically works because you can have a UID(email address) that is 2048 c
 
 I wrote this because I think this characteristic of key-servers is actually dangerous, for example someone could upload leaked data and it would be spread around the world and accessible by anyone and unstoppable, how would this situation be dealt with?
 
+#### Gavt45 changes
+ - Added AES128 CBC encryption
+ - Added nice progress bars
+
 ### Which Parts of the GDPR this might be affected by:  
 
 I would be happy for people to make pull requests to add information they think is relevant to this.  
@@ -20,22 +24,15 @@ I have moved this section to a separate document [GDPR and its effects](https://
 
 __Notice:__ This Program is very slow to add data to the gpg pubkey so don't plan on super large files.  
 
-### upload-text-file.py
-
-Usage: python upload-text-file.py plain-text-file.txt  
-One thing to note, is the text will not appear ordered, so don't expect a long rant to appear as you want it to.  
-Also character length of each line should not exceed 2000 or the key will break and be unusable.  
-
 ### upload-file.py
 
-Usage: python upload-file.py <file>  
+Usage: python upload-file.py <file>
 Data can take between 3-10mins before it appears on the server so don't be surprised if the link you're given does not work straight away.  
-Requirements: gnupg2, pinentry  
+Requirements: gnupg2
 
 ### download-keyserv.py
 
-Usage: python download-keyserv.py "http://eu.pool.sks-keyservers.net/pks/lookup?search=WCNGKCCWBE@UMKVS.jpg&op=index"  
-Requirements: python-bs4  
+Usage: python download-keyserv.py "http://eu.pool.sks-keyservers.net/pks/lookup?search=WCNGKCCWBE@UMKVS.jpg&op=index"
 
 The first of the uid(email) is numeric to stand for the order of the base64 string so we can be put it together again in the correct order, then the second part is simply a set chunk of binary data converted to base64.  
 
